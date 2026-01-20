@@ -43,6 +43,15 @@ export class Tetromino {
     }
 
     rotateLeft() {
-        return this.#orientations[this.#currentOrientation].rotateLeft();
+        console.log(this.#currentOrientation);
+        console.log(this.#orientations[this.#currentOrientation].toString());
+        if (this.#currentOrientation - 1 < 0) {
+            this.#currentOrientation = this.#orientations.length - 1;
+        } else {
+            this.#currentOrientation = this.#currentOrientation - 1;
+        }
+        console.log(this.#currentOrientation);
+        console.log(this.#orientations[this.#currentOrientation].toString());
+        return this.#orientations[this.#currentOrientation];
     }
 }
