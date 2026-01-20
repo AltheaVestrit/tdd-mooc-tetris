@@ -19,9 +19,14 @@ export class Board {
   }
 
   drop() {
-    this.col = Math.floor(this.width/2);
-    this.row = 0;
-    this.updateBoard();
+    if (this.falling) {
+      throw new Error("already falling");
+    } else {
+      this.falling = true;
+      this.col = Math.floor(this.width/2);
+      this.row = 0;
+      this.updateBoard();
+    }
   }
 
   tick() {
