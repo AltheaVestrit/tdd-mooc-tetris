@@ -5,6 +5,7 @@ export class Board {
   row;
   col;
   falling = null;
+  piece = 'X';
 
   constructor(width, height) {
     this.width = width;
@@ -17,14 +18,15 @@ export class Board {
     return str;
   }
 
-  drop() {
+  drop(piece) {
     if (this.falling) {
       throw new Error("already falling");
     } else {
+      this.piece = piece;
       this.falling = true;
       this.col = Math.floor(this.width/2);
       this.row = 0;
-      this.updateBoard();
+      this.board[this.row][this.col] = piece;
     }
   }
 
@@ -32,8 +34,9 @@ export class Board {
     if (this.row === this.height - 1) {
       this.falling = false;
     } else {
+      this.board[this.row][this.col] = '.';
       this.row += 1;
-      this.updateBoard();
+      this.board[this.row][this.col] = this.piece;
     }
   }
 
