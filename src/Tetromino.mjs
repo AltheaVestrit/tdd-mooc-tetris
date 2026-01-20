@@ -1,4 +1,7 @@
+import { RotatingShape } from "./RotatingShape.mjs";
+
 export class Tetromino {
+    #shape;
     static T_SHAPE = Tetromino.fromString(`
     .T.
     TTT
@@ -7,8 +10,13 @@ export class Tetromino {
 
     static fromString(shapeType) {
         const shape = RotatingShape.fromString(shapeType)
-        return shape;
+        return new Tetromino(shape);
     }
 
-    toString() {return this.toString;}
+    constructor(shape) {
+        this.#shape = shape;
+    }
+    toString() {
+        return this.#shape.toString();
+    }
 }
