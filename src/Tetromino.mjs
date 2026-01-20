@@ -2,11 +2,13 @@ import { RotatingShape } from "./RotatingShape.mjs";
 
 export class Tetromino {
     #shape;
+    #orientations;
+
     static T_SHAPE = Tetromino.fromString(`
     .T.
     TTT
     ...
-    `);
+    `,4);
 
     static I_SHAPE = Tetromino.fromString(`
     .....
@@ -14,10 +16,14 @@ export class Tetromino {
     IIII.
     .....
     .....
-    `)
+    `,2)
 
-    static fromString(shapeType) {
-        const shape = RotatingShape.fromString(shapeType)
+    static fromString(shapeType, nrOrientations) {
+        const shape = RotatingShape.fromString(shapeType);
+        let orientations = [];
+        for (let i = 0; i < nrOrientations; i++) {
+            orientations.push()
+        }
         return new Tetromino(shape);
     }
 
