@@ -20,16 +20,16 @@ export class RotatingShape {
         return str;
     }
 
-    rotateRight() {
+    rotateLeft() {
         let rows = this.#shape.length;
         let cols = this.#shape[0].length;
-        let rotated = new Array(rows);
-        for (let i=0; i<rows; i++) {
-            rotated[i] = new Array(cols);
-            for (let j=0; j<cols; j++) {
-                rotated[i][j] = "";
+        let rotated = new Array(cols);
+        for (let i=0; i<cols; i++) {
+            rotated[i] = new Array(rows);
+            for (let j=0; j<rows; j++) {
+                rotated[i][j] = this.#shape[j][rows-1-i];
             }
         }
-        console.log(rotated);
+        return new RotatingShape(rotated);
     }
 }
