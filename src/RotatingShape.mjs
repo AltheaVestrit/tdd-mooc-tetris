@@ -14,4 +14,9 @@ export class RotatingShape {
     constructor(shape) {
         this.#shape = shape;
     }
+
+    toString() {
+    let str = this.#shape.map(row => row.join('')).join('\n') + '\n';
+    return str;
+    }
 }
