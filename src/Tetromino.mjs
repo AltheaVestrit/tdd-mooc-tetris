@@ -34,6 +34,10 @@ export class Tetromino {
         this.#orientations = orientations;
     }
 
+    #shape() {
+        return this.#orientations[this.#currentOrientation];
+    }
+
     toString() {
         return this.#orientations[this.#currentOrientation].toString();
     }
@@ -44,15 +48,11 @@ export class Tetromino {
     }
 
     rotateLeft() {
-        console.log(this.#currentOrientation);
-        console.log(this.#orientations[this.#currentOrientation].toString());
         if (this.#currentOrientation - 1 < 0) {
             this.#currentOrientation = this.#orientations.length - 1;
         } else {
             this.#currentOrientation = this.#currentOrientation - 1;
         }
-        console.log(this.#currentOrientation);
-        console.log(this.#orientations[this.#currentOrientation].toString());
         return this.#orientations[this.#currentOrientation];
     }
 }
