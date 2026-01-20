@@ -2,6 +2,8 @@ export class Board {
   width;
   height;
   board;
+  row;
+  col;
 
   constructor(width, height) {
     this.width = width;
@@ -15,7 +17,8 @@ export class Board {
   }
 
   drop() {
-    const mid = Math.floor(this.width/2);
-    this.board[0][mid] = 'X';
+    this.col = Math.floor(this.width/2);
+    this.row = 0;
+    this.board[0][this.col] = 'X';
   }
 }
