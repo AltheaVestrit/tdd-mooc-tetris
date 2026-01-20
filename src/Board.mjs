@@ -40,11 +40,6 @@ export class Board {
     }
   }
 
-  updateBoard() {
-    this.board = Array(this.height).fill().map(() => Array(this.width).fill('.'));
-    this.board[this.row][this.col] = 'X';
-  }
-
   hasFalling() {
     return this.falling;
   }
