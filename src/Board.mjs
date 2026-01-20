@@ -19,11 +19,12 @@ export class Board {
   drop() {
     this.col = Math.floor(this.width/2);
     this.row = 0;
-    this.draw();
+    this.updateBoard();
   }
 
   tick() {
-    this.draw();
+    this.row += 1;
+    this.updateBoard();
   }
 
   updateBoard() {
