@@ -4,11 +4,13 @@ export class Board {
   board;
   row;
   col;
+  falling;
 
   constructor(width, height) {
     this.width = width;
     this.height = height;
     this.board = Array(this.height).fill().map(() => Array(this.width).fill('.'));
+    this.falling = false;
   }
 
   toString() {
