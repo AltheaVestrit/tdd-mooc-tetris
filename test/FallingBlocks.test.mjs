@@ -20,7 +20,6 @@ describe("Falling blocks", () => {
     beforeEach(() => {
       board.drop("X");
     });
-/*
     test("it starts from the top middle", () => {
       expect(board.toString()).to.equalShape(
         `.X.
@@ -45,7 +44,6 @@ describe("Falling blocks", () => {
       const after = board.toString();
       expect(after).to.equal(before);
     });
-    */
   });
 
 

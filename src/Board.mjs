@@ -7,12 +7,15 @@ export class Board {
     this.width = width;
     this.height = height;
     this.board = Array(this.height).fill().map(() => Array(this.width).fill('.'));
-    console.log(this.board);
   }
 
   toString() {
-    let str = this.board[0].join('') + '\n' + this.board[1].join('')+ '\n' + this.board[2].join('') + '\n';
-    console.log(str);
+    let str = this.board.map(row => row.join('')).join('\n') + '\n';
     return str;
+  }
+
+  drop() {
+    const mid = Math.floor(this.width/2);
+    this.board[0][mid] = 'X';
   }
 }
