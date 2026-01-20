@@ -29,19 +29,19 @@ export class Tetromino {
     }
 
     constructor(orientations) {
-        this.#currentOrientation = orientations[0];
+        this.#currentOrientation = 0;
         this.#orientations = orientations;
     }
 
     toString() {
-        return this.#currentOrientation.toString();
+        return this.#orientations[this.#currentOrientation].toString();
     }
 
     rotateRight() {
-        return this.#currentOrientation.rotateRight();
+        return this.#orientations[this.#currentOrientation].rotateRight();
     }
 
     rotateLeft() {
-        return this.#currentOrientation.rotateLeft();
+        return this.#orientations[this.#currentOrientation].rotateLeft();
     }
 }
