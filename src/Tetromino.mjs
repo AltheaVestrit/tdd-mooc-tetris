@@ -39,7 +39,7 @@ export class Tetromino {
     }
 
     toString() {
-        return this.#orientations[this.#currentOrientation].toString();
+        return this.#shape().toString();
     }
 
     rotateRight() {
