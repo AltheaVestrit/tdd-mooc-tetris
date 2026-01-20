@@ -4,13 +4,12 @@ export class Board {
   board;
   row;
   col;
-  falling;
+  falling = null;
 
   constructor(width, height) {
     this.width = width;
     this.height = height;
     this.board = Array(this.height).fill().map(() => Array(this.width).fill('.'));
-    this.falling = false;
   }
 
   toString() {
@@ -30,8 +29,12 @@ export class Board {
   }
 
   tick() {
-    this.row += 1;
-    this.updateBoard();
+    if (this.row === this.height - 1) {
+      this.falling = false;
+    } else {
+      this.row += 1;
+      this.updateBoard();
+    }
   }
 
   updateBoard() {
