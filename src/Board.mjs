@@ -19,6 +19,15 @@ export class Board {
   drop() {
     this.col = Math.floor(this.width/2);
     this.row = 0;
-    this.board[0][this.col] = 'X';
+    this.draw();
+  }
+
+  tick() {
+    this.draw();
+  }
+
+  updateBoard() {
+    this.board = Array(this.height).fill().map(() => Array(this.width).fill('.'));
+    this.board[this.row][this.col] = 'X';
   }
 }
