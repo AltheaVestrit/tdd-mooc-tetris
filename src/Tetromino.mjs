@@ -29,8 +29,7 @@ export class Tetromino {
     }
 
     constructor(orientations, currentOrientation) {
-        this.#currentOrientation = 0;
-        let currentOrientation2 = (currentOrientation + orientations.length) % orientations.lengt;
+        this.#currentOrientation = (currentOrientation + orientations.length) % orientations.length;
         this.#orientations = orientations;
     }
 
@@ -43,16 +42,10 @@ export class Tetromino {
     }
 
     rotateRight() {
-        this.#currentOrientation = (this.#currentOrientation + 1) % this.#orientations.length;
-        return this.#orientations[this.#currentOrientation];
+        return new Tetromino(this.#orientations,this.#currentOrientation + 1);
     }
 
     rotateLeft() {
-        if (this.#currentOrientation - 1 < 0) {
-            this.#currentOrientation = this.#orientations.length - 1;
-        } else {
-            this.#currentOrientation = this.#currentOrientation - 1;
-        }
-        return this.#orientations[this.#currentOrientation];
+        return new Tetromino(this.#orientations,this.#currentOrientation - 1);
     }
 }
