@@ -31,7 +31,7 @@ export class Board {
   }
 
   tick() {
-    if (this.row === this.height - 1) {
+    if (this.row === this.height - 1 || !(this.board[this.row + 1][this.col] === '.')) {
       this.falling = false;
     } else {
       this.board[this.row][this.col] = '.';
