@@ -38,7 +38,8 @@ export class Tetromino {
     }
 
     rotateRight() {
-        return this.#orientations[this.#currentOrientation].rotateRight();
+        this.#currentOrientation = (this.#currentOrientation + 1) % this.#orientations.length;
+        return this.#orientations[this.#currentOrientation];
     }
 
     rotateLeft() {
