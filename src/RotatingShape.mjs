@@ -24,6 +24,12 @@ export class RotatingShape {
         let rows = this.#shape.length;
         let cols = this.#shape[0].length;
         let rotated = new Array(rows);
-        rotated.fill("").map((row) => {let row_arr = new Array(cols); return row_arr.fill("");});
+        for (let i=0; i<rows; i++) {
+            rotated[i] = new Array(cols);
+            for (let j=0; j<cols; j++) {
+                rotated[i][j] = "";
+            }
+        }
+        console.log(rotated);
     }
 }
