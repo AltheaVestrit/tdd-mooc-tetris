@@ -42,6 +42,12 @@ export class Tetromino {
         ...`,4,0
     );
 
+    static Z_SHAPE = Tetromino.fromString(
+        `ZZ.
+        .ZZ
+        ...`,4,0
+    );
+
     static fromString(shapeType, nrOrientations, currentOrientation) {
         const shape = RotatingShape.fromString(shapeType);
         let orientations = [shape, 
