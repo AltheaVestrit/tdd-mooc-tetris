@@ -16,13 +16,19 @@ export class Tetromino {
     IIII.
     .....
     .....
-    `,2,0)
+    `,2,0);
 
     static O_SHAPE = Tetromino.fromString(`
     .OO
     .OO
     ...
-    `,1,0)
+    `,1,0);
+
+    static J_SHAPE = Tetromino.fromString(`
+    ...
+    J..
+    JJJ
+    `,4,0);
 
     static fromString(shapeType, nrOrientations, currentOrientation) {
         const shape = RotatingShape.fromString(shapeType);
