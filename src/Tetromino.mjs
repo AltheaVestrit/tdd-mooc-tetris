@@ -18,6 +18,12 @@ export class Tetromino {
     .....
     `,2,0)
 
+    static O_SHAPE = Tetromino.fromString(`
+    .OO
+    .OO
+    ...
+    `,1,0)
+
     static fromString(shapeType, nrOrientations, currentOrientation) {
         const shape = RotatingShape.fromString(shapeType);
         let orientations = [shape, 
