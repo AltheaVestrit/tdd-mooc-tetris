@@ -5,7 +5,7 @@ export class Board {
   row;
   col;
   falling = null;
-  piece = 'X';
+  piece;
 
   constructor(width, height) {
     this.width = width;
@@ -16,6 +16,14 @@ export class Board {
   toString() {
     let str = this.board.map(row => row.join('')).join('\n') + '\n';
     return str;
+  }
+
+  #stringToShape(str) {
+    let shape = str
+    .replaceAll(" ","")
+    .trim().split('\n')
+    .map((row) => row.split(''));
+    return shape;           
   }
 
   drop(piece) {
