@@ -42,19 +42,28 @@ export class Board {
       this.row = 0;
       for (let i = 0; i < this.size; i++) {
         for (let j = 0; j < this.size; j++) {
-          this.board[i][j+this.col] = this.piece[i][j];
+          if (this.piece[i][j] != ".") {
+            this.board[i][j+this.col] = this.piece[i][j];
+          }
         }
       }
     }
   }
 
   tick() {
+    //TODO: Modify the check for a piece below the current falling piece
     if (this.row === this.height - 1 || !(this.board[this.row + 1][this.col] === '.')) {
       this.falling = false;
     } else {
-      this.board[this.row][this.col] = '.';
+      //TODO: fix code for moving piece one row down
+      for (let i = 0; i < this.size; i++) {
+        for (let j = 0; j < this.size; j++) {
+          if (this.piece[i][j] != ".") {
+            this.board[this.row + i][this.col + j] === ".";
+            this.board[this.row + 1 + i][this.col + j] === this.piece[i][j];}
+        }
+      }
       this.row += 1;
-      this.board[this.row][this.col] = this.piece;
     }
   }
 
