@@ -5,7 +5,8 @@ export class Board {
   row;
   col;
   falling = null;
-  piece;
+  piece; // falling piece in array form
+  size; // dimensions of falling piece (= always a square)
 
   constructor(width, height) {
     this.width = width;
@@ -30,11 +31,16 @@ export class Board {
     if (this.falling) {
       throw new Error("already falling");
     } else {
-      this.piece = piece;
+      this.piece = this.#stringToShape(piece);
+      this.size = this.piece.length;
       this.falling = true;
-      this.col = Math.floor(this.width/2);
+      this.col = Math.floor(this.width/2 - this.size/2);
       this.row = 0;
-      this.board[this.row][this.col] = piece;
+      for (let i = 0; i < this.size; i++) {
+        for (let j = 0; j < this.size; j++) {
+          this.board[i][j+this.col] = this.piece[i][j];
+        }
+      }
     }
   }
 
