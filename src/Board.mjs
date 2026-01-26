@@ -31,7 +31,11 @@ export class Board {
     if (this.falling) {
       throw new Error("already falling");
     } else {
-      this.piece = this.#stringToShape(piece);
+      if (typeof piece === String) {
+        this.piece = this.#stringToShape(piece);
+      } else {
+        this.piece = this.#stringToShape(piece.toString());
+      }
       this.size = this.piece.length;
       this.falling = true;
       this.col = Math.floor(this.width/2 - this.size/2);
